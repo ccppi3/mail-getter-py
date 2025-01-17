@@ -62,7 +62,13 @@ for line in data["blocks"]:
 for o in objs:
     print(o,"\n")
 
-#print("all keys: ",[*get_all_keys(data)])
+#log_json(page.get_drawings())
+#
+#data_drawings = page.get_drawings()
+#
+#for strocke in data_drawings:
+#    print("stroke: ",strocke["items"])
+
 file = open("json_of_pdf.json","w")
 
 file.write(jdata)

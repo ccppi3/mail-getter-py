@@ -5,9 +5,12 @@ from email.policy import default as default_policy
 from dotenv import load_dotenv
 import os
 
+
 load_dotenv()
 
 mail_name = os.getenv('Name')
+
+password = os.getenv('Password')
 
 def writefile(buffer,filename):
     file = open(filename,"wb")
@@ -28,8 +31,11 @@ capa = mailbox.capa()
 print("Server capabilities: ", capa)
 
 resp = mailbox.user(user)
+if not password:
+    password = getpass()
+else:
+    print("read password from .env")
 
-password = getpass()
 resp = mailbox.pass_(password)
 print("response: ",resp)
 
